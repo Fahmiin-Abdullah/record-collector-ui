@@ -1,22 +1,24 @@
 <template>
-  <div class="max-w-sm m-auto my-8">
-    <div class="border p-10 border-grey-light shadow rounded">
-      <h3 class="text-2xl mb-6 text-grey-darkest">Sign In</h3>
-      <form @submit.prevent="signin">
-        <div class="text-red" v-if="error">{{ error }}</div>
-        <div class="mb-6">
-          <label for="email">E-mail Address</label>
-          <input type="email" v-model="email" id="email" placeholder="email@example.com">
-        </div>
-        <div class="mb-6">
-          <label for="password">Password</label>
-          <input type="password" v-model="password" id="password">
-        </div>
-        <button type="submit" class="font-sans font-bold px-4 rounded cursor-pointer no-underline bg-green hover:bg-green-dark block w-full py-4 text-white items-center justify-center">Sign In</button>
-        <div class="my-4">
-          <router-link to="/signup" class="link">Sign Up</router-link>
-        </div>
-      </form>
+  <div class="container">
+    <div class="card mt-5">
+      <div class="card-body">
+        <h3 class="card-title mb-3">Sign In</h3>
+        <form @submit.prevent="signin">
+          <div class="text-red" v-if="error">{{ error }}</div>
+          <div class="form-group">
+            <label for="email">E-mail Address</label>
+            <input type="email" v-model="email" class="form-control" id="email" placeholder="email@example.com">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" v-model="password" class="form-control" id="password" placeholder="Enter a secure password">
+          </div>
+          <button type="submit" class="btn btn-success btn-block mt-4">Sign In</button>
+          <div class="mt-2">
+            <router-link to="/signup" class="btn btn-link">Sign Up</router-link>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -65,3 +67,10 @@
     }
   }
 </script>
+
+<style scoped>
+  .card {
+    width: 65%;
+    margin: auto;
+  }
+</style>
