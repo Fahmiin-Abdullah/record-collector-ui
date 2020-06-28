@@ -34,7 +34,7 @@ securedAxiosInstance.interceptors.response.use(null, error => {
   if (error.response && error.response.config && error.response.status === 401) {
     return plainAxiosInstance.post('/refresh', {}, { headers: { 'X-CSRF-TOKEN': localStorage.csrf } })
                              .then(res => {
-                               localStorage.csrf = response.data.csrf
+                               localStorage.csrf = res.data.csrf
                                localStorage.signedIn = true
 
                                let retryConfig = error.response.config
@@ -46,11 +46,9 @@ securedAxiosInstance.interceptors.response.use(null, error => {
                                delete localStorage.signedIn
 
                                location.replace('/')
-                               return Promise.reject(error)
+                               return Promise.reject(err)
                              })
   } else return Promise.reject(error)
-
-  return config
 })
 
 export { securedAxiosInstance, plainAxiosInstance }
