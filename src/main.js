@@ -9,15 +9,10 @@ Vue.config.productionTip = false
 
 Vue.use(VueAxios, { secured: securedAxiosInstance, plain: plainAxiosInstance })
 
-// new Vue({
-//   render: h => h(App),
-// }).$mount('#app')
-
 new Vue({
   el: '#app',
   router,
   securedAxiosInstance,
   plainAxiosInstance,
-  components: { App },
-  template: '<App/>'
+  render: h => h(App)
 })
