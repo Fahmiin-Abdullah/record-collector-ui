@@ -4,7 +4,7 @@
       <div class="card-body">
         <h3 class="card-title mb-3">Add a new record</h3>
         <form @submit.prevent="addRecord">
-          <div class="text-red" v-if="error">{{ error }}</div>
+          <div class="red-text" v-if="error">{{ error }}</div>
           <div class="form-group">
             <input type="text" v-model="newRecord.title" class="form-control" placeholder="Type a record title">
           </div>

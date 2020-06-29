@@ -4,7 +4,7 @@
       <div class="card-body">
         <h3 class="card-title mb-3">Sign In</h3>
         <form @submit.prevent="signin">
-          <div class="text-red" v-if="error">{{ error }}</div>
+          <div class="red-text" v-if="error">{{ error }}</div>
           <div class="form-group">
             <label for="email">E-mail Address</label>
             <input type="email" v-model="email" class="form-control" id="email" placeholder="email@example.com">

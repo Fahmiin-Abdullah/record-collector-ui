@@ -4,7 +4,7 @@
       <div class="card-body">
         <h3 class="card-title mb-3">Add a new artist</h3>
         <form @submit.prevent="addArtist">
-          <div class="text-red" v-if="error">{{ error }}</div>
+          <div class="red-text" v-if="error">{{ error }}</div>
           <div class="form-group">
             <input type="text" v-model="newArtist.name" class="form-control" placeholder="Type an artist name">
           </div>
