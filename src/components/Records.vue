@@ -13,7 +13,7 @@
           </div>
           <select class="custom-select" v-model="newRecord.artist">
             <option selected>Select an artist</option>
-            <option v-for="artists in artist" :value="artist.id" :key="artist.id">{{ artist.name }}</option>
+            <option v-for="artist in artists" :value="artist.id" :key="artist.id">{{ artist.name }}</option>
           </select>
           <p>Don't see an artist? <router-link to="/artists" class="btn btn-link">Create one</router-link>.</p>
           <button type="submit" class="btn btn-success btn-block mt-4">Add record</button>
@@ -38,7 +38,7 @@
                   </div>
                   <select class="custom-select" v-model="record.artist">
                     <option selected>Select an artist</option>
-                    <option v-for="artists in artist" :value="artist.id" :key="artist.id">{{ artist.name }}</option>
+                    <option v-for="artist in artists" :value="artist.id" :key="artist.id">{{ artist.name }}</option>
                   </select>
                   <button type="submit" class="btn btn-success btn-block mt-4">Update record</button>
                 </form>
@@ -80,7 +80,7 @@
       },
       getArtist (record) {
         return this.artists.filter(artist => artist.id === record.artist_id)[0].name
-      }
+      },
       addRecord () {
         const value = this.newRecord
 
