@@ -37,7 +37,7 @@
 
 <script>
   export default {
-    name: 'Artist',
+    name: 'Artists',
     data () {
       return {
         artists: [],
@@ -49,7 +49,7 @@
     created () {
       if (!localStorage.signedIn) this.$router.replace('/')
       else {
-        this.$http.secured.get('/api/va/artists')
+        this.$http.secured.get('/api/v1/artists')
                           .then(res => this.artists = res.data)
                           .catch(err => this.setError(err, 'Something went wrong...'))
       }
@@ -73,7 +73,7 @@
       },
       deleteArtist (artist) {
         this.$http.secured.delete(`/api/v1/artists/${artist.id}`)
-                          .then(res => this.artists.splice(this.artists.indexOf(artist), 1))
+                          .then(() => this.artists.splice(this.artists.indexOf(artist), 1))
                           .catch(err => this.setError(err, 'Cannot delete artist'))
       },
       editArtist (artist) {
@@ -87,3 +87,10 @@
     }
   }
 </script>
+
+<style scoped>
+  .card {
+    width: 65%;
+    margin: auto;
+  }
+</style>
