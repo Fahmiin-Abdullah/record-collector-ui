@@ -5,26 +5,19 @@ const API_URL = 'http://localhost:3000'
 const securedAxiosInstance = axios.create({
   baseUrl: API_URL,
   withCredentials: true,
-  headers: {
-    'Content-type': 'application/json'
-  }
+  headers: { 'Content-type': 'application/json' }
 })
 
 const plainAxiosInstance = axios.create({
   baseUrl: API_URL,
   withCredentials: true,
-  headers: {
-    'Content-type': 'application/json'
-  }
+  headers: { 'Content-type': 'application/json' }
 })
 
 securedAxiosInstance.interceptors.request.use(config => {
   const method = config.method.toUpperCase()
   if (method !== 'OPTIONS' && method !== 'GET') {
-    config.headers = {
-      ...config.headers,
-      'X-CSRF-TOKEN': localStorage.csrf
-    }
+    config.headers = { ...config.headers, 'X-CSRF-TOKEN': localStorage.csrf }
   }
 
   return config
